@@ -1,0 +1,5 @@
+CP1 runtime evidence: structured log with request context
+Source: data/logs.jsonl, generated after API restart and load test.
+
+{"service": "api", "payload": {"message_preview": "What is your refund policy? My email is [REDACTED_EMAIL]"}, "event": "request_received", "user_id_hash": "2055254ee30a", "session_id": "s01", "model": "claude-sonnet-4-5", "env": "dev", "correlation_id": "req-2369a064", "feature": "qa", "level": "info", "ts": "2026-09-30T03:26:59.050228Z"}
+{"service": "api", "latency_ms": 1389, "ttft_ms": 50, "tokens_in": 36, "tokens_out": 131, "cost_usd": 0.002073, "quality_score": 0.9, "tool_name": "retrieval", "tool_success": true, "payload": {"answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."}, "event": "response_sent", "user_id_hash": "2055254ee30a", "session_id": "s01", "model": "claude-sonnet-4-5", "env": "dev", "correlation_id": "req-2369a064", "feature": "qa", "level": "info", "ts": "2026-09-30T03:27:00.766836Z"}

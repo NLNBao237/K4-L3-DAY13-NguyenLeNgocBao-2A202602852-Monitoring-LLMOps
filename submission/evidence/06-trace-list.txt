@@ -1,0 +1,23 @@
+# 06 - Langfuse trace list (project day13-k4-l3b-2A202602852)
+# Source: GET https://us.cloud.langfuse.com/api/public/v2/observations?fromStartTime=2026-09-30T04:35:07.914187+00:00
+# Traces for this run: 18 | observations with raw PII: 0
+
+trace_id                           start (UTC)               correlation_id label      ver  source   obs   in  out  cost_usd  phase
+094e43d17c05936803cb66f2930449b1   2026-09-30T04:35:11.654Z  req-452df6ac   baseline   1    langfuse   3   25  109  0.001710  A-baseline-label-warmup
+023944831956ce88d0c4869926e624dd   2026-09-30T04:35:15.396Z  req-9553ca6d   baseline   1    langfuse   3   45  143  0.002280  A-baseline-label
+ebd5ab4786a8ca1e5eb6bb1329d42c34   2026-09-30T04:35:30.986Z  req-772f9bb2   candidate  2    langfuse   3   51  144  0.002313  B-candidate-label-warmup
+48f117820c5f13b24820359e1f73bd03   2026-09-30T04:35:36.599Z  req-a1670765   candidate  2    langfuse   3   71   86  0.001503  B-candidate-label
+4ba643d51266527071817b7f581e18e6   2026-09-30T04:35:52.609Z  req-56b6964b   production 2    langfuse   3   51  172  0.002733  C-production-after-promote-warmup
+a27b0017519222a17908f4ef7ccbde2a   2026-09-30T04:35:54.262Z  req-3d518570   production 2    langfuse   3   71  160  0.002613  C-production-after-promote
+226ed5b11347aa28c6ededcf6d9adf33   2026-09-30T04:36:10.768Z  req-a33032c7   production 1    langfuse   3   25  153  0.002370  D-production-after-rollback-warmup
+ccd64d0b66c459dc62e805592ac07af5   2026-09-30T04:36:12.453Z  req-e098446c   production 1    langfuse   3   45   99  0.001620  D-production-after-rollback
+949a986d3338952f0b8e7a966e755516   2026-09-30T04:36:13.044Z  req-25bd9573   production 1    langfuse   3   36  163  0.002553  D-production-after-rollback
+b2426a9b9a6dc8c9d6e923342e99bcd1   2026-09-30T04:36:13.717Z  req-e0d39a63   production 1    langfuse   3   32  148  0.002316  D-production-after-rollback
+d6e6f2b5de6f06a2d658d29deaca3f5e   2026-09-30T04:36:14.201Z  req-4e28413b   production 1    langfuse   3   43   86  0.001419  D-production-after-rollback
+82b9980afaf852b2776684bf4576b273   2026-09-30T04:36:14.873Z  req-f2ec54e5   production 1    langfuse   3   39  175  0.002742  D-production-after-rollback
+ef509f6b7c2d65226c185469db834fc6   2026-09-30T04:36:15.504Z  req-d9aa25f7   production 1    langfuse   3   33   99  0.001584  D-production-after-rollback
+e7b5fc9ab4e176b6caca2e8a7ca04d52   2026-09-30T04:36:16.057Z  req-903f5b2f   production 1    langfuse   3   35  171  0.002670  D-production-after-rollback
+5d0bf1bc45ae97e836701605c8676b36   2026-09-30T04:36:16.598Z  req-a2154da5   production 1    langfuse   3   29  149  0.002322  D-production-after-rollback
+c13251447fc6c2db9f14bd0b40ac228b   2026-09-30T04:36:17.235Z  req-9f0b82db   production 1    langfuse   3   27  151  0.002346  D-production-after-rollback
+f29bdd05e810f295e58d21f43e54a605   2026-09-30T04:36:17.905Z  req-af1358a5   production 1    langfuse   3   36  120  0.001908  D-production-after-rollback
+ea413a4dd9172d985a1e656e6a65089f   2026-09-30T04:36:18.493Z  req-9499d63d   production 1    langfuse   3   28  170  0.002634  D-production-after-rollback

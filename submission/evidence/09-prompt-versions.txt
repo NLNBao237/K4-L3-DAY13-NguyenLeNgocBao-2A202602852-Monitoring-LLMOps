@@ -1,0 +1,12 @@
+# 09 - Prompt versions for day13-chat (current state from Langfuse)
+
+## version 1 labels=['baseline', 'production'] commit_message='v1 baseline: minimal Feature/Docs/Question template'
+Feature={{feature}}
+Docs={{docs}}
+Question={{message}}
+
+## version 2 labels=['candidate', 'latest'] commit_message='v2 candidate: add concise 3-bullet answer instruction'
+You are a concise support assistant. Answer in at most 3 short bullet points using only the docs below.
+Feature={{feature}}
+Docs={{docs}}
+Question={{message}}

@@ -1,0 +1,6 @@
+# 07 - Trace waterfall (trace name day13-agent-request)
+# trace_id=ccd64d0b66c459dc62e805592ac07af5 correlation_id=req-e098446c
+day13-agent-request
+AGENT     lab-agent-run      id=9c0c264b2a7ce78f parent=- start=2026-09-30T04:36:12.453Z latency=0.155s
+  └─ RETRIEVER retrieval          id=45b7d2004082c0ef parent=9c0c264b2a7ce78f start=2026-09-30T04:36:12.456Z latency=0s
+  └─ GENERATION fake-llm-generate  id=603d21103e937427 parent=9c0c264b2a7ce78f start=2026-09-30T04:36:12.456Z latency=0.152s model=claude-sonnet-4-5 usage={'input': 45, 'output': 99, 'total': 144} cost={'input': 0.000135, 'output': 0.001485, 'total': 0.00162} promptName=day13-chat promptVersion=1

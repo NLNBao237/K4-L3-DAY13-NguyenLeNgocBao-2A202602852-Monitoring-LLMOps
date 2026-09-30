@@ -1,0 +1,13 @@
+# 14 - Incident trace (Langfuse project day13-k4-l3b-2A202602852, GET /api/public/v2/observations)
+
+## INCIDENT: trace_id=b90428ad34d4143815edfb3b3a919b42 correlation_id=req-6e2f18dd
+AGENT      lab-agent-run      2026-09-30T05:25:12.044Z -> 2026-09-30T05:25:14.697Z     2653 ms (100.0%)
+  └─ RETRIEVER  retrieval          2026-09-30T05:25:12.044Z -> 2026-09-30T05:25:14.545Z     2501 ms ( 94.3%) output={"doc_count": 1, "docs_preview": ["No domain document matched. Use general fallback answer."]}
+  └─ GENERATION fake-llm-generate  2026-09-30T05:25:14.546Z -> 2026-09-30T05:25:14.697Z      151 ms (  5.7%) usage={'input': 36, 'output': 117, 'total': 153}
+  metadata: feature=monitoring prompt=day13-chat v1 (production) doc_count=1
+
+## BASELINE (same challenge, incident off): trace_id=b3f8306756e33cd0c9eff44a83d4f164 correlation_id=req-24dc26e3
+AGENT      lab-agent-run      2026-09-30T05:24:08.309Z -> 2026-09-30T05:24:08.467Z      158 ms (100.0%)
+  └─ GENERATION fake-llm-generate  2026-09-30T05:24:08.316Z -> 2026-09-30T05:24:08.467Z      151 ms ( 95.6%) usage={'input': 34, 'output': 117, 'total': 151}
+  └─ RETRIEVER  retrieval          2026-09-30T05:24:08.316Z -> 2026-09-30T05:24:08.316Z        0 ms (  0.0%) output={"doc_count": 1, "docs_preview": ["No domain document matched. Use general fallback answer."]}
+  metadata: feature=monitoring prompt=day13-chat v1 (production) doc_count=1

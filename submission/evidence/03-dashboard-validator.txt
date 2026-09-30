@@ -1,0 +1,4 @@
+$ python scripts/validate_dashboard.py
+HỢP LỆ: 6/6 panel có trong dashboard contract.
+
+# commit base: 61a34f8 docs: avoid leaking challenge hints (+ uncommitted CP1/CP2 changes), 2026-09-30T04:40:23Z

@@ -1,0 +1,53 @@
+# 12 - Incident metric (source: GET /dashboard/data over data/logs.jsonl, 1-minute buckets)
+# Challenge day13-k4-l3b-monitoring-llmops-v1 | latency_threshold_ms=2000 | SLO/alert P95 limit 3000 ms
+
+minute(UTC)  requests  p50_ms  p95_ms  p99_ms  ttft_p95  error_%  retrieval_ok_%  quality  cost_usd
+05:24               6     151    1423    1423        50      0.0             100     0.83    0.0126
+05:25              10    2653    2654    2654        50      0.0             100     0.84    0.0216
+05:26               5     152     152     152        50      0.0             100     0.84    0.0115
+
+05:24 = baseline (incident off), 05:25 = incident on, 05:26 = after disable (recovery).
+05:24 P95 1423 ms is the prompt-cache warm-up request (feature=qa), not a challenge query; challenge queries at 05:24 were 151-152 ms.
+
+# Run transcript (official scripts, BASE_URL pointed to private server :8011)
+
+[2026-09-30T05:24:08+00:00] warm-up request sent (prompt cache)
+[2026-09-30T05:24:09+00:00] $ python scripts/load_test.py --challenge --concurrency 5
+Challenge: day13-k4-l3b-monitoring-llmops-v1 | Cohort: K4
+[200] req-24dc26e3 | monitoring | 161.2ms
+[200] req-243ef511 | monitoring | 315.1ms
+[200] req-d1a53e83 | monitoring | 625.3ms
+[200] req-de32197f | monitoring | 777.3ms
+[200] req-386d122a | monitoring | 778.2ms
+
+[2026-09-30T05:25:09+00:00] $ python scripts/inject_incident.py
+200 {'ok': True, 'incidents': {'rag_slow': True, 'tool_fail': False, 'cost_spike': False}}
+
+[2026-09-30T05:25:22+00:00] $ python scripts/load_test.py --challenge --concurrency 5
+Challenge: day13-k4-l3b-monitoring-llmops-v1 | Cohort: K4
+[200] req-6dfe1778 | monitoring | 2661.8ms
+[200] req-6e2f18dd | monitoring | 10632.5ms
+[200] req-20a758b8 | monitoring | 13286.1ms
+[200] req-b70af4a2 | monitoring | 13286.9ms
+[200] req-6e8e1045 | monitoring | 13285.1ms
+
+[2026-09-30T05:25:56+00:00] $ python scripts/load_test.py --challenge --concurrency 5
+Challenge: day13-k4-l3b-monitoring-llmops-v1 | Cohort: K4
+[200] req-38e2b9a7 | monitoring | 5314.1ms
+[200] req-59677211 | monitoring | 5314.2ms
+[200] req-9b90bfa9 | monitoring | 13280.4ms
+[200] req-f5c1176d | monitoring | 13281.4ms
+[200] req-d8600e43 | monitoring | 13281.1ms
+
+[2026-09-30T05:26:56+00:00] $ python scripts/inject_incident.py --disable
+200 {'ok': True, 'incidents': {'rag_slow': False, 'tool_fail': False, 'cost_spike': False}}
+
+[2026-09-30T05:26:57+00:00] $ python scripts/load_test.py --challenge --concurrency 5
+Challenge: day13-k4-l3b-monitoring-llmops-v1 | Cohort: K4
+[200] req-88dfa864 | monitoring | 312.4ms
+[200] req-ad936c0f | monitoring | 468.2ms
+[200] req-d3b52a1a | monitoring | 468.5ms
+[200] req-b05a4cdb | monitoring | 777.8ms
+[200] req-6aea4345 | monitoring | 778.4ms
+
+[2026-09-30T05:26:57+00:00] health: {'ok': True, 'tracing_enabled': True, 'incidents': {'rag_slow': False, 'tool_fail': False, 'cost_spike': False}}

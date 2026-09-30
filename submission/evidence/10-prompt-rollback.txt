@@ -1,0 +1,13 @@
+# 10 - Prompt promote/rollback of label `production` (same input, same code, only label moved)
+# Input: 'Explain why metrics traces and logs work together for monitoring'
+
+step                             LANGFUSE_PROMPT_LABEL  prompt_version tokens_in correlation_id trace_id
+A-baseline-label                 baseline               1              45        req-9553ca6d   023944831956ce88d0c4869926e624dd
+B-candidate-label                candidate              2              71        req-a1670765   48f117820c5f13b24820359e1f73bd03
+C-production-after-promote       production             2              71        req-3d518570   a27b0017519222a17908f4ef7ccbde2a
+D-production-after-rollback      production             1              45        req-e098446c   ccd64d0b66c459dc62e805592ac07af5
+
+Label actions (Langfuse SDK update_prompt):
+  1. create v1 labels=[baseline, production]; create v2 labels=[candidate]
+  2. promote : update_prompt(name='day13-chat', version=2, new_labels=['candidate','production'])  -> production=v2
+  3. rollback: update_prompt(name='day13-chat', version=1, new_labels=['baseline','production'])   -> production=v1

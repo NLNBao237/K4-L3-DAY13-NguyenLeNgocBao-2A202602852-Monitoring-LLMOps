@@ -1,0 +1,32 @@
+# 13 - Incident log (data/logs.jsonl)
+# Filter: event == response_sent and feature == monitoring and 05:24 <= ts < 05:28, sorted by ts
+
+ts                          correlation_id latency_ms ttft_ms tokens_out
+2026-09-30T05:24:08.467860Z req-24dc26e3          152      50        117
+2026-09-30T05:24:08.626719Z req-243ef511          151      50        150
+2026-09-30T05:24:08.782004Z req-d1a53e83          151      50        157
+2026-09-30T05:24:08.935436Z req-de32197f          151      50        120
+2026-09-30T05:24:09.090591Z req-386d122a          152      50        131
+2026-09-30T05:25:12.040150Z req-6dfe1778         2653      50         87
+2026-09-30T05:25:14.697701Z req-6e2f18dd         2653      50        117
+2026-09-30T05:25:17.354697Z req-20a758b8         2653      50        166
+2026-09-30T05:25:20.012414Z req-b70af4a2         2654      50        143
+2026-09-30T05:25:22.667740Z req-6e8e1045         2652      50        120
+2026-09-30T05:25:45.454611Z req-38e2b9a7         2653      50        135
+2026-09-30T05:25:48.111429Z req-59677211         2652      50        152
+2026-09-30T05:25:50.768702Z req-9b90bfa9         2653      50        125
+2026-09-30T05:25:53.424178Z req-f5c1176d         2653      50        163
+2026-09-30T05:25:56.079107Z req-d8600e43         2652      50        159
+2026-09-30T05:26:56.510458Z req-88dfa864          151      50        171
+2026-09-30T05:26:56.664373Z req-ad936c0f          151      50        177
+2026-09-30T05:26:56.820187Z req-d3b52a1a          152      50        161
+2026-09-30T05:26:56.976563Z req-b05a4cdb          152      50        133
+2026-09-30T05:26:57.133096Z req-6aea4345          152      50         92
+
+# Selected abnormal request + control events (raw JSON, scrubbed fields only)
+{"ts": "2026-09-30T05:24:08.309825Z", "event": "request_received", "correlation_id": "req-24dc26e3", "feature": "monitoring", "payload": {"message_preview": "How should an engineer investigate tail latency?"}}
+{"ts": "2026-09-30T05:24:08.467860Z", "event": "response_sent", "correlation_id": "req-24dc26e3", "feature": "monitoring", "latency_ms": 152, "ttft_ms": 50, "tokens_in": 34, "tokens_out": 117, "cost_usd": 0.001857, "tool_name": "retrieval", "tool_success": true, "payload": {"answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."}}
+{"ts": "2026-09-30T05:25:09.249543Z", "event": "incident_enabled", "correlation_id": "req-e8f2c03a", "payload": {"name": "rag_slow"}}
+{"ts": "2026-09-30T05:25:12.040150Z", "event": "request_received", "correlation_id": "req-6e2f18dd", "feature": "monitoring", "payload": {"message_preview": "Which signal should be checked after latency increases?"}}
+{"ts": "2026-09-30T05:25:14.697701Z", "event": "response_sent", "correlation_id": "req-6e2f18dd", "feature": "monitoring", "latency_ms": 2653, "ttft_ms": 50, "tokens_in": 36, "tokens_out": 117, "cost_usd": 0.001863, "tool_name": "retrieval", "tool_success": true, "payload": {"answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."}}
+{"ts": "2026-09-30T05:26:56.226100Z", "event": "incident_disabled", "correlation_id": "req-3b41b1aa", "payload": {"name": "rag_slow"}}
