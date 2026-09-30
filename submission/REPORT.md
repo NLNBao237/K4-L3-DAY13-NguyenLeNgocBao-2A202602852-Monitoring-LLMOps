@@ -8,7 +8,7 @@
 - **MSSV:** 2A202602852
 - **Lớp:** K4-L3B
 - **Repository URL:** https://github.com/NLNBao237/K4-L3-DAY13-NguyenLeNgocBao-2A202602852-Monitoring-LLMOps
-- **Commit SHA cuối:**
+- **Commit SHA cuối:** `e46b461152bbe783cbe634a1579969a1385313b6` (code + evidence; commit sau đó chỉ điền SHA này vào report)
 - **Challenge ID:** `day13-k4-l3b-monitoring-llmops-v1`
 - **Tên project Langfuse cá nhân:** `day13-k4-l3b-2A202602852`
 
@@ -192,7 +192,7 @@ Baseline đo lại trên commit starter `61a34f8` (bản sao riêng, tắt Langf
 
 ## 9. Checklist trước khi nộp
 
-- [ ] Kết quả và evidence thuộc commit SHA cuối.
+- [x] Kết quả và evidence thuộc commit SHA cuối.
 - [x] Tất cả ảnh/output mở được bằng đường dẫn tương đối.
 - [x] Incident evidence nối đúng metric → log → trace.
 - [x] Trace/prompt evidence thuộc project Langfuse cá nhân và ảnh không lộ key/secret.
